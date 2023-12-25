@@ -1,6 +1,6 @@
-﻿import styled from 'styled-components';
-import React, { useMemo, useState } from 'react';
+﻿import { TabItemContainer } from './TabStyles';
 import TabItem from './TabItem';
+import React, { PropsWithChildren, useMemo, useState } from 'react';
 
 type ChildrenToArray = (
   children: React.ReactNode,
@@ -20,23 +20,17 @@ const childrenToArray: ChildrenToArray = (children, types) => {
     return false;
   }) as React.ReactElement[];
 };
-
-const TabItemContainer = styled.div`
-  border-bottom: 2px solid #ddd;
-  background-color: #eee;
-`;
-
 interface TabProps {
-  children: React.ReactNode;
   active?: number;
 }
 
-const Tab = ({ children, active, ...props }: TabProps) => {
+const Tab = ({ children, active, ...props }: PropsWithChildren<TabProps>) => {
   const [currentActive, setCurrentActive] = useState(() => {
     if (active) {
       return active;
     } else {
       const index = childrenToArray(children, 'Tab.Item')[0].props.index;
+
       return index;
     }
   });

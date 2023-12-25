@@ -1,20 +1,7 @@
 ﻿import styled from 'styled-components';
+import { TabItemWrapper } from './TabStyles';
 import PropTypes from 'prop-types';
 import Text from '../Text';
-
-interface TabItemWrapperProps {
-  active: boolean;
-}
-
-const TabItemWrapper = styled.div<TabItemWrapperProps>`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 140px;
-  height: 60px;
-  background-color: ${({ active }) => (active ? '#ddf' : '#eee')};
-  cursor: pointer;
-`;
 
 interface TabItemProps {
   title: string;
