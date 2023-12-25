@@ -8,8 +8,6 @@ interface ModalProps {
   height?: number;
   visible?: boolean;
   style?: React.CSSProperties;
-  //closePos 추가
-  //contentPos 추가
   //bordered
   onClose?: () => void;
 }

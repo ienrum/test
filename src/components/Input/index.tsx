@@ -9,7 +9,6 @@ const Input = ({
   readOnly = false,
   placeholder = '',
   wrapperProps,
-  //hint = '',
   ...props
 }: InputProps) => {
   return (
