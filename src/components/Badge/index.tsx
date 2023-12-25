@@ -1,31 +1,5 @@
-﻿import styled from 'styled-components';
-
-const BadgeContainer = styled.div`
-  position: relative;
-  display: inline-block;
-`;
-
-const Super = styled.sup`
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: inline-flex;
-  align-items: center;
-  height: 20px;
-  padding: 0 8px;
-  font-size: 12px;
-  color: white;
-  border-radius: 20px;
-  background-color: #f44;
-  transform: translate(50%, -50%);
-
-  &.dot {
-    padding: 0;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-  }
-`;
+﻿import { BadgeContainer, Super } from './StyledBadge';
+import React, { PropsWithChildren } from 'react';
 
 interface BadgeProps {
   children: React.ReactNode;
@@ -46,7 +20,7 @@ const Badge = ({
   backgroundColor,
   textColor,
   ...props
-}: BadgeProps) => {
+}: PropsWithChildren<BadgeProps>) => {
   const colorStyle = {
     backgroundColor,
     color: textColor,
