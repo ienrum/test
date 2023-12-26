@@ -1,7 +1,8 @@
-﻿import styled from 'styled-components';
+﻿import AvatarGroup from './AvatarGroup';
+import AvatarProps from './AvatarProps';
+import Image from '../Image';
+import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import ImageComponent from '../Image';
-import AvatarGroup from './AvatarGroup';
 
 const ShapeToCssValue = {
   circle: '50%',
@@ -26,17 +27,6 @@ const AvatarWrapper = styled.div<AvatarWrapperProps>`
   }
 `;
 
-interface AvatarProps {
-  lazy?: boolean;
-  threshold?: number;
-  src: string;
-  size?: number;
-  shape?: keyof typeof ShapeToCssValue;
-  placeholder?: string;
-  alt?: string;
-  mode?: 'cover' | 'contain';
-  __TYPE?: string;
-}
 const Avatar = ({
   lazy,
   threshold,
@@ -59,7 +49,7 @@ const Avatar = ({
 
   return (
     <AvatarWrapper {...props} shape={shape}>
-      <ImageComponent
+      <Image
         block
         lazy={lazy}
         threshold={threshold}

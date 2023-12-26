@@ -1,19 +1,7 @@
-﻿import PropTypes from 'prop-types';
+﻿import TextProps from './TextProps';
+import { PropsWithChildren } from 'react';
+import PropTypes from 'prop-types';
 import './Text.css';
-
-interface TextProps {
-  children: React.ReactNode;
-  size?: number | string;
-  block?: boolean;
-  paragraph?: boolean;
-  delete?: boolean;
-  code?: boolean;
-  mark?: boolean;
-  strong?: boolean;
-  underline?: boolean;
-  color?: string;
-  style?: React.CSSProperties;
-}
 
 const Text = ({
   children,
@@ -27,7 +15,7 @@ const Text = ({
   mark,
   code,
   ...props
-}: TextProps) => {
+}: PropsWithChildren<TextProps>) => {
   const Tag = block ? 'div' : paragraph ? 'p' : 'span';
   const fontStyle = {
     fontWeight: strong ? 'bold' : undefined,
@@ -36,14 +24,16 @@ const Text = ({
     color,
   };
 
+  let modifiedChildren = children;
+
   if (mark) {
-    children = <mark>{children}</mark>;
+    modifiedChildren = <mark>{children}</mark>;
   }
   if (code) {
-    children = <code>{children}</code>;
+    modifiedChildren = <code>{children}</code>;
   }
   if (del) {
-    children = <del>{children}</del>;
+    modifiedChildren = <del>{children}</del>;
   }
 
   return (
@@ -51,7 +41,7 @@ const Text = ({
       className={typeof size === 'string' ? `Text--size-${size}` : undefined}
       style={{ ...props.style, ...fontStyle }}
       {...props}>
-      {children}
+      {modifiedChildren}
     </Tag>
   );
 };

@@ -1,13 +1,15 @@
-﻿import { useState, useRef, useEffect } from 'react';
+﻿import ImageProps from './ImageProps';
+import { useState, useRef, useEffect } from 'react';
 
 let observer = null;
 const LOAD_IMG_EVENT_TYPE = 'loadImage';
 
-type onIntersectionType = (
+type OnIntersectionType = (
   entries: IntersectionObserverEntry[],
   io: IntersectionObserver,
 ) => void;
-const onIntersection: onIntersectionType = (entries, io) => {
+
+const onIntersection: OnIntersectionType = (entries, io) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       io.unobserve(entry.target);
@@ -16,18 +18,6 @@ const onIntersection: onIntersectionType = (entries, io) => {
   });
 };
 
-interface ImageProps {
-  lazy?: boolean;
-  threshold?: number;
-  placeholder?: string;
-  src: string;
-  block?: boolean;
-  width?: number | string;
-  height?: number | string;
-  alt?: string;
-  mode?: 'cover' | 'fill' | 'contain';
-  style?: React.CSSProperties;
-}
 const Image = ({
   lazy,
   threshold = 0.5,
@@ -83,4 +73,5 @@ const Image = ({
     />
   );
 };
+
 export default Image;

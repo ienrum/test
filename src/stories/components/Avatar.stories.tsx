@@ -5,7 +5,7 @@ export default {
   title: "Component/Avatar",
   component: Avatar,
   argTypes: {
-    src: { defaultValue: "https://picsum.photos/200" },
+    src: { defaultValue: "https://picsum.photos/200?1" },
     shape: {
       defaultValue: "circle",
       control: "inline-radio",

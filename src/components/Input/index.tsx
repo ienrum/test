@@ -6,7 +6,7 @@ const Input = ({
   invalid = false,
   required = false,
   disabled = false,
-  readonly = false,
+  readOnly = false,
   placeholder = '',
   wrapperProps,
   ...props
@@ -18,7 +18,7 @@ const Input = ({
         invalid={invalid}
         required={required}
         disabled={disabled}
-        readOnly={readonly}
+        readOnly={readOnly}
         placeholder={placeholder}
         {...props}
       />
