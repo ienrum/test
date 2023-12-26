@@ -6,6 +6,7 @@ type ChildrenToArray = (
   children: React.ReactNode,
   types: string | string[],
 ) => React.ReactElement[];
+
 const childrenToArray: ChildrenToArray = (children, types) => {
   return React.Children.toArray(children).filter((element) => {
     if (React.isValidElement(element) && types.includes(element.props.__TYPE)) {

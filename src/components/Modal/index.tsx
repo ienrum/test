@@ -1,15 +1,8 @@
 ﻿import { BackgroundDim, ModalContainer } from './ModalStyles';
+import { ModalProps } from '@/types/ModalProps';
 import { useEffect, useMemo, PropsWithChildren } from 'react';
 import ReactDOM from 'react-dom';
 import useClickAway from '../../hooks/useClickAway';
-
-interface ModalProps {
-  width?: number;
-  height?: number;
-  visible?: boolean;
-  style?: React.CSSProperties;
-  onClose?: () => void;
-}
 
 const Modal = ({
   children,
