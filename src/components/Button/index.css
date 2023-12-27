@@ -17,19 +17,19 @@
   --Error-400: #cb4e4e;
   --Error-500: #5c5c5c;
 
-  --White: #ffffff;
   --Warning-100: #fdf4e3;
   --Warning-200: #fbe8a8;
   --Warning-300: #f7d17b;
   --Warning-400: #f3cb4e;
   --Warning-500: #5c5c5c;
-  --Black: #000000;
 
-  --Grayscale-100: #f8f9fa;
-  --Grayscale-200: #e9ecef;
-  --Grayscale-300: #dee2e6;
+  --White: #ffffff;
+  --Grayscale-100: #f9f9f9;
+  --Grayscale-200: #dee2e6;
+  --Grayscale-300: #868296;
   --Grayscale-400: #343a40;
   --Grayscale-500: #212529;
+  --Black: #000000;
 
   --Info-100: #e3f1fc;
   --Info-200: #b3d4fa;

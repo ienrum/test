@@ -1,6 +1,6 @@
 ﻿import AvatarGroup from './AvatarGroup';
 import AvatarProps from './AvatarProps';
-import Image from '../Image';
+import ImageContainer from '../Image';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 
@@ -36,7 +36,6 @@ const Avatar = ({
   placeholder,
   alt,
   mode = 'cover',
-  __TYPE,
   ...props
 }: AvatarProps) => {
   const [loaded, setLoaded] = useState(false);
@@ -49,7 +48,7 @@ const Avatar = ({
 
   return (
     <AvatarWrapper {...props} shape={shape}>
-      <Image
+      <ImageContainer
         block
         lazy={lazy}
         threshold={threshold}
