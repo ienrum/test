@@ -5,7 +5,7 @@ export default {
   title: 'Component/Button',
   component: Button,
   argTypes: {
-    type: {
+    styleType: {
       control: 'select',
       options: ['primary', 'ghost', 'text', 'danger'],
     },
@@ -17,6 +17,10 @@ export default {
       control: 'select',
       options: ['enabled', 'hover', 'click', 'focus', 'disabled'],
     },
+    type: {
+      control: 'select',
+      options: ['button', 'submit', 'reset'],
+    },
     isArrow: {
       control: 'boolean',
     },
@@ -27,14 +31,17 @@ export default {
     },
   },
   args: {
-    type: 'primary',
+    styleType: 'primary',
     size: 'small',
     event: 'enabled',
+    type: 'button',
     isArrow: false,
     children: 'Button',
   },
 } as Meta;
 
 export const Default: Story = (args) => (
-  <Button {...args}>{args.children}</Button>
+  <form>
+    <Button {...args}>{args.children}</Button>
+  </form>
 );

@@ -1,6 +1,5 @@
 import { styled, css } from 'styled-components';
 
-// active 를 위해 padding 과 flex-direction 삭제
 export const ButtonSize = {
   mini: css`
     display: flex;
@@ -136,7 +135,7 @@ export const ButtonTypeEvent = {
 
 export const ButtonLayout = styled.button<{
   size?: 'mini' | 'small' | 'regular' | 'wide';
-  type?: 'primary' | 'ghost' | 'text' | 'danger';
+  styleType?: 'primary' | 'ghost' | 'text' | 'danger';
   event?: 'enabled' | 'hover' | 'click' | 'focus' | 'disabled';
   isArrow?: boolean;
   disabled?: boolean;
@@ -155,7 +154,8 @@ export const ButtonLayout = styled.button<{
   cursor: pointer;
 
   ${({ size }) => size && ButtonSize[size]}
-  ${({ type, event }) => event && type && ButtonTypeEvent[type][event]}
+  ${({ styleType, event }) =>
+    event && styleType && ButtonTypeEvent[styleType][event]}
   padding:${({ isArrow }) => (isArrow ? '13px 12px 13px 16px' : '13px 16px')};
 `;
 
@@ -192,7 +192,7 @@ const ButtonWrapperBackgroundSize = {
 
 export const ButtonWrapper = styled.div<{
   isActive: boolean;
-  type?: 'primary' | 'ghost' | 'text' | 'danger';
+  styleType?: 'primary' | 'ghost' | 'text' | 'danger';
   size?: 'mini' | 'small' | 'regular' | 'wide';
 }>`
   visibility: ${({ isActive }) => (isActive ? 'visible' : 'hidden')};
@@ -204,7 +204,7 @@ export const ButtonWrapper = styled.div<{
 
   border-radius: 12px;
 
-  ${({ type }) => type && ButtonWrapperBorderColor[type]}
+  ${({ styleType }) => styleType && ButtonWrapperBorderColor[styleType]}
   ${({ size }) => size && ButtonWrapperBackgroundSize[size]}
   & > * {
     visibility: visible;

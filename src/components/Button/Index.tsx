@@ -1,17 +1,28 @@
-import { ButtonProps } from '@/types/ButtonProps';
 import { ButtonLayout, ButtonWrapper } from './StyledButton';
 import { PropsWithChildren } from 'react';
+import { ButtonProps } from '@/types/ButtonProps';
 
 const Button = ({
   children,
-  type,
+  styleType,
   size,
   event,
+  type,
+  onClick,
   isArrow = false,
 }: PropsWithChildren<ButtonProps>) => {
   return (
-    <ButtonWrapper isActive={event === 'focus'} type={type} size={size}>
-      <ButtonLayout type={type} size={size} event={event} isArrow={isArrow}>
+    <ButtonWrapper
+      isActive={event === 'focus'}
+      styleType={styleType}
+      size={size}>
+      <ButtonLayout
+        type={type}
+        onClick={onClick}
+        styleType={styleType}
+        size={size}
+        event={event}
+        isArrow={isArrow}>
         {size !== 'mini' && children}
         {(isArrow || size === 'mini') && <span>{'>'}</span>}
       </ButtonLayout>
