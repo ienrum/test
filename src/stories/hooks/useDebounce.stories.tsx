@@ -1,44 +1,44 @@
-﻿import { Fragment, useState } from "react";
-import useDebounce from "../../hooks/useDebounce";
+﻿import { Fragment, useState } from 'react';
+import useDebounce from '../../hooks/useDebounce';
 
 export default {
-  title: "Hook/useDebounce",
+  title: 'Hook/useDebounce',
 };
 
 const companies = [
-  "Cobalt",
-  "Grepp",
-  "Kakao",
-  "Naver",
-  "Daangn",
-  "Coupang",
-  "Line",
-  "Woowahan",
+  'Cobalt',
+  'Grepp',
+  'Kakao',
+  'Naver',
+  'Daangn',
+  'Coupang',
+  'Line',
+  'Woowahan',
 ];
 
 export const Default = () => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   const [result, setResult] = useState([]);
 
   useDebounce(
     () => {
-      if (value === "") setResult([]);
+      if (value === '') setResult([]);
       else {
         setResult(
           companies.filter((company) =>
-            company.toLowerCase().includes(value.toLowerCase())
-          )
+            company.toLowerCase().includes(value.toLowerCase()),
+          ),
         );
       }
     },
     300,
-    [value]
+    [value],
   );
 
   return (
     <div>
       <input
-        type="text"
+        type='text'
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />

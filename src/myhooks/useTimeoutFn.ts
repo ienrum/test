@@ -1,7 +1,7 @@
-﻿import { useCallback, useEffect, useRef } from "react";
+﻿import { useCallback, useEffect, useRef } from 'react';
 
-const useTimeoutFn = (fn, ms) => {
-  const timeoutId = useRef();
+const useTimeoutFn = (fn: () => void, ms: number) => {
+  const timeoutId = useRef<NodeJS.Timeout>();
   const callback = useRef(fn);
 
   useEffect(() => {

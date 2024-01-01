@@ -1,12 +1,12 @@
-﻿import useTimeout from "../../hooks/useTimeout";
+﻿import useTimeout from '../../hooks/useTimeout';
 
 export default {
-  title: "Hook/useTimeout",
+  title: 'Hook/useTimeout',
 };
 
 export const Default = () => {
   const clear = useTimeout(() => {
-    alert("실행!");
+    alert('실행!');
   }, 3000);
 
   return (
